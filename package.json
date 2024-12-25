@@ -1,0 +1,16 @@
+{
+  "name": "divi5-module-init",
+  "version": "1.0.1",
+  "main": "src/scripts.js",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "inquirer": "^12.2.0",
+    "replace-in-file": "^8.3.0",
+    "simple-git": "^3.27.0"
+  },
+  "bin": {
+    "divi5-module-init": "./src/scripts.js"
+  }
+}

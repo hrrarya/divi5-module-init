@@ -1,0 +1,40 @@
+{
+  "name": "dnxte/MODULE_TEXTDOMAIN_",
+  "d4Shortcode": "DIVI4_SHORTCODE_SLUG_",
+  "title": "MODULE_NAME_",
+  "titles": "MODULE_NAME_PLURAL_",
+  "moduleIcon": "dnxte/MODULE_ICON_",
+  "category": "module",
+  "attributes": {
+    "module": {
+      "type": "object",
+      "selector": "{{selector}}",
+      "default": {
+        "meta": {
+          "adminLabel": {
+            "desktop": {
+              "value": "MODULE_NAME_"
+            }
+          }
+        }
+      },
+      "styleProps": {
+        "spacing": {
+          "selector": "{{selector}}"
+        },
+        "border": {},
+        "boxShadow": {}
+      }
+    }
+  },
+  "customCssFields": {
+    "heading": {
+      "subName": "heading",
+      "selectorSuffix": ""
+    },
+    "content": {
+      "subName": "content",
+      "selectorSuffix": ""
+    }
+  }
+}

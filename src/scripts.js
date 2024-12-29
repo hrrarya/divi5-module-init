@@ -11,8 +11,10 @@ const dir = path.resolve(path.dirname("./"));
 
 const builderSourceDir = path.resolve(__dirname, "../builder/CLASS_NAME_");
 const frontendSourceDir = path.resolve(__dirname, "../frontend/CLASS_NAME_");
+const iconSourceDir = path.resolve(__dirname, "../icons/CLASS_NAME_");
 
 const builderDestDir = path.resolve("./src/components/CLASS_NAME_");
+const iconDestDir = path.resolve("./src/icons/CLASS_NAME_");
 const frontendDestDir = path.resolve("./modules/CLASS_NAME_");
 
 async function copyModule() {
@@ -21,20 +23,21 @@ async function copyModule() {
     // Check if source folders exist
     if (!(await fs.pathExists(builderSourceDir))) {
       console.error(
-        `Builder folder for ${className} does not exist at ${builderSourceDir}`
+        `Builder folder for ${className} does not exist at ${builderSourceDir}`,
       );
       return;
     }
 
     if (!(await fs.pathExists(frontendSourceDir))) {
       console.error(
-        `Frontend folder for ${className} does not exist at ${frontendSourceDir}`
+        `Frontend folder for ${className} does not exist at ${frontendSourceDir}`,
       );
       return;
     }
 
     // Copy folders
     await fs.copy(builderSourceDir, builderDestDir);
+    await fs.copy(iconSourceDir, iconDestDir);
     await fs.copy(frontendSourceDir, frontendDestDir);
   } catch (err) {
     console.error(`Error copying folders for ${className}:`, err);
@@ -86,6 +89,7 @@ async function updatePlaceholders(replacements) {
       `${dir}/src/components/CLASS_NAME_/**/*.ts`,
       `${dir}/src/components/CLASS_NAME_/**/*.tsx`,
       `${dir}/src/components/CLASS_NAME_/**/*.scss`,
+      `${dir}/src/icons/CLASS_NAME_/**/*.tsx`,
     ],
     from: [
       /CLASS_NAME_/g,
@@ -121,12 +125,14 @@ function renameMainFile(answers) {
   const oldFiles = [
     path.join(dir + "/modules/CLASS_NAME_"),
     path.join(dir + "/src/components/CLASS_NAME_"),
+    path.join(dir + "/src/icons/CLASS_NAME_"),
     path.join(dir + "/modules/CLASS_NAME_/CLASS_NAME_.php"),
     path.join(dir + "/modules/CLASS_NAME_/CLASS_NAME_Trait"),
   ];
   const newFiles = [
     path.join(dir + `/modules/${answers.className}`),
     path.join(dir + `/src/components/${answers.className}`),
+    path.join(dir + `/src/icons/${answers.className}`),
     path.join(dir + `/modules/CLASS_NAME_/${answers.className}.php`),
     path.join(dir + `/modules/CLASS_NAME_/${answers.className}Trait`),
   ];
@@ -150,8 +156,8 @@ function renameMainFile(answers) {
 
   console.info(
     `Module: ${answers.moduleName} initialized
-  
+
 Happy Coding.....
-  `
+  `,
   );
 })();

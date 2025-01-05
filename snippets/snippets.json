@@ -1,0 +1,62 @@
+{
+  "registerModule": {
+    "prefix": "register",
+    "body": ["registerModule($0.metadata, omit($1, 'metadata'));"]
+  },
+  "Write GroupContainer": {
+    "prefix": "groupc",
+    "body": [
+      "<GroupContainer",
+      "  id='$1'",
+      "  title={__('$2', 'dnxte-divi-essential')}>",
+      "  $3",
+      "</GroupContainer>"
+    ]
+  },
+  "Write FiendContainer": {
+    "prefix": "fieldc",
+    "body": [
+      "<FieldContainer",
+      " attrName='$1'",
+      " label={__('$2', 'dnxte-divi-essential')}",
+      " description={__('', 'dnxte-divi-essential')}",
+      " features={{sticky: false,dynamicContent: false}}",
+      " defaultAttr={defaultSettingsAttrs}>",
+      "$3",
+      "</FieldContainer>"
+    ]
+  },
+  "Write SelectContainer": {
+    "prefix": "selectc",
+    "body": [
+      "<SelectContainer",
+      " options={{ first: { label: __('First', 'dnxte-divi-essential'), },",
+      " second: { label: __('Second', 'dnxte-divi-essential'), },}}",
+      " displayCheckMark={true}",
+      " />"
+    ]
+  },
+  "Write RangeContainer": {
+    "prefix": "rangec",
+    "body": [
+      "<RangeContainer",
+      " defaultUnit=''",
+      " min={1}",
+      " max={1000}",
+      " step={1}",
+      " />"
+    ]
+  },
+  "Write GroupTabs": {
+    "prefix": "groupt",
+    "body": [
+      "<GroupTabs",
+      " showLabel={true}",
+      " activeTab={headingBgTab}",
+      " showIcon={false}",
+      " tabs={bgTabOptions}",
+      " onClick={(e: React.MouseEvent<HTMLButtonElement>) => {} }",
+      "/>"
+    ]
+  }
+}

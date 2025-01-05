@@ -1,9 +1,8 @@
 {
   "name": "divi5-module-init",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "main": "src/scripts.js",
   "type": "module",
-  "license": "MIT",
   "dependencies": {
     "fs-extra": "^11.2.0",
     "inquirer": "^12.2.0",
@@ -12,5 +11,22 @@
   },
   "bin": {
     "divi5-module-init": "./src/scripts.js"
+  },
+  "scripts": {
+    "start": "node src/scripts.js"
+  },
+  "keywords": [
+    "divi",
+    "extension",
+    "module",
+    "wordpress",
+    "cli",
+    "automation"
+  ],
+  "author": "Hridoy Mozumder",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hrrarya/divi5-module-init.git"
   }
 }

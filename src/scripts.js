@@ -4,9 +4,12 @@ import fs from "fs-extra";
 import path from "path";
 import inquirer from "inquirer";
 import { replaceInFile } from "replace-in-file";
+import { fileURLToPath } from "url";
 
 // Input and output paths
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+// const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const dir = path.resolve(path.dirname("./"));
 
 const builderSourceDir = path.resolve(__dirname, "../builder/CLASS_NAME_");
@@ -23,14 +26,14 @@ async function copyModule() {
     // Check if source folders exist
     if (!(await fs.pathExists(builderSourceDir))) {
       console.error(
-        `Builder folder for ${className} does not exist at ${builderSourceDir}`,
+        `Builder folder for ${className} does not exist at ${builderSourceDir}`
       );
       return;
     }
 
     if (!(await fs.pathExists(frontendSourceDir))) {
       console.error(
-        `Frontend folder for ${className} does not exist at ${frontendSourceDir}`,
+        `Frontend folder for ${className} does not exist at ${frontendSourceDir}`
       );
       return;
     }
@@ -158,6 +161,6 @@ function renameMainFile(answers) {
     `Module: ${answers.moduleName} initialized
 
 Happy Coding.....
-  `,
+  `
   );
 })();
